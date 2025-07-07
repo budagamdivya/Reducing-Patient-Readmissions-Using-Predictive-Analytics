@@ -1,0 +1,48 @@
+# STEP 2: DATA CLEANING & PREPROCESSING
+
+# 1. Import libraries
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
+
+# 2. Load the dataset
+df = pd.read_csv("diabetic_data.csv")
+print("✅ Data loaded successfully.")
+print(f"Initial shape: {df.shape}")
+
+# 3. Replace '?' with NaN
+df.replace("?", np.nan, inplace=True)
+
+# 4. Show missing values
+missing = df.isnull().sum().sort_values(ascending=False)
+print("\n🚨 Missing values in columns:")
+print(missing[missing > 0])
+
+# 5. Drop irrelevant or mostly missing columns
+cols_to_drop = ['encounter_id', 'patient_nbr', 'weight', 'payer_code', 'medical_specialty']
+df.drop(columns=cols_to_drop, inplace=True)
+print(f"\n🗑️ Dropped columns: {cols_to_drop}")
+
+# 6. Clean and encode target column: 'readmitted'
+# - Readmitted <30 days → 1
+# - Readmitted >30 or NO → 0
+df['readmitted'] = df['readmitted'].apply(lambda x: 1 if x == '<30' else 0)
+print("\n🎯 Readmitted column transformed into binary classification:")
+print(df['readmitted'].value_counts())
+
+# 7. Drop rows with missing 'race' or 'gender'
+df.dropna(subset=['race', 'gender'], inplace=True)
+print(f"\n🧹 Dropped rows with missing 'race' or 'gender'. New shape: {df.shape}")
+
+# 8. Encode all categorical columns
+categorical_cols = df.select_dtypes(include=['object']).columns
+le = LabelEncoder()
+
+for col in categorical_cols:
+    df[col] = le.fit_transform(df[col])
+print("\n🔠 Categorical columns encoded.")
+
+# 9. Final check
+print(f"\n✅ Final dataset shape: {df.shape}")
+print("Preview of cleaned data:")
+df.head()
