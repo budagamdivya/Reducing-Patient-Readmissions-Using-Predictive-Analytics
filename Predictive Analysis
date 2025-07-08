@@ -1,0 +1,57 @@
+# STEP 4: PREDICTIVE MODELING – Logistic Regression
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 1. Load Cleaned Data
+df = pd.read_csv("cleaned_diabetic_data.csv")
+print("✅ Data loaded. Shape:", df.shape)
+
+# 2. Split into Features (X) and Target (y)
+X = df.drop(columns=['readmitted'])  # All features
+y = df['readmitted']                 # Target column
+
+# 3. Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+# 4. Train Logistic Regression Model
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
+
+# 5. Make Predictions
+y_pred = model.predict(X_test)
+
+# 6. Evaluate Model
+print("🔍 Accuracy:", accuracy_score(y_test, y_pred))
+print("\n📊 Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("\n📄 Classification Report:\n", classification_report(y_test, y_pred))
+
+# 7. Plot Confusion Matrix
+plt.figure(figsize=(5,4))
+sns.heatmap(confusion_matrix(y_test, y_pred), annot=True, fmt='d', cmap='Blues')
+plt.title("🧪 Confusion Matrix")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.show()
+
+# 8. Feature Importance
+feature_importance = pd.Series(model.coef_[0], index=X.columns)
+top_features = feature_importance.abs().sort_values(ascending=False).head(10)
+
+print("\n🔥 Top 10 Most Influential Features (Logistic Regression Coefficients):")
+print(top_features)
+
+# 9. Visualize Feature Importance
+plt.figure(figsize=(8,6))
+top_features.sort_values().plot(kind='barh', color='orange')
+plt.title("📌 Top 10 Important Features Influencing Readmission")
+plt.xlabel("Coefficient Magnitude")
+plt.ylabel("Features")
+plt.tight_layout()
+plt.show()
