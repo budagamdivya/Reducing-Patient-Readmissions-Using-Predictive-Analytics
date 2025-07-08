@@ -31,7 +31,7 @@ Hospital readmissions are costly and often preventable. In this project, I analy
 
 ## 🤖 Predictive Modeling
 - **Model Used**: Logistic Regression
-- **Accuracy**: 0.8905975174631892
+- **Accuracy**: 89%
 - **Top Predictive Features**:
   - Number of inpatient visits
   - Number of medications
