@@ -38,6 +38,10 @@ Hospital readmissions are costly and often preventable. In this project, I analy
   - Discharge disposition
 - Evaluated with confusion matrix and classification report
 
+## Dashboards Creation 
+https://app.sigmacomputing.com/pace-university/workbook/workbook-5MAJJpDuuQQgP3Mxl4xumI?:link_source=share
+
+
 
 ## 📌 Key Takeaways
 - Proactively targeting high-risk groups (elderly, multiple hospital visits) can reduce costs and improve outcomes.
