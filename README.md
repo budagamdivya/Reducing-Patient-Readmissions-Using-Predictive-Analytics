@@ -38,6 +38,10 @@ Hospital readmissions are costly and often preventable. In this project, I analy
   - Discharge disposition
 - Evaluated with confusion matrix and classification report
 
+  <img width="500" height="400" alt="Predictive analysis" src="https://github.com/user-attachments/assets/81d0180a-5992-41c8-abfc-1c2806e96f47" />
+<img width="800" height="600" alt="Predictive analysis 2" src="https://github.com/user-attachments/assets/6658d884-ee63-47e7-bc9c-b57a188ec980" />
+
+
 ## Dashboards Creation 
 https://app.sigmacomputing.com/pace-university/workbook/workbook-5MAJJpDuuQQgP3Mxl4xumI?:link_source=share
 
