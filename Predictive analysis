@@ -1,12 +1,1 @@
-# Clone your repository (if you haven't already)
-git clone https://github.com/budagamdivya/Reducing-Patient-Readmissions-Using-Predictive-Analytics.git
-cd Reducing-Patient-Readmissions-Using-Predictive-Analytics
 
-# Delete the file
-git rm "Predictive analysis"
-
-# Commit the change
-git commit -m "Delete Predictive analysis file"
-
-# Push to GitHub
-git push origin main
