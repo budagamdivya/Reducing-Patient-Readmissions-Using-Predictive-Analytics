@@ -2,7 +2,7 @@
 # 🏥 Reducing Patient Readmissions Using Predictive Analytics
 
 ## 📌 Project Overview
-Hospital readmissions are costly and often preventable. In this project, I analyzed over 100,000 patient records from U.S. hospitals to identify key drivers of 30-day readmissions. Using predictive modeling and data visualization, I aimed to help healthcare organizations proactively reduce readmission rates and improve patient outcomes.
+Hospital readmissions are costly and often preventable. In this project, I analyzed over 100,000 diabetic patient records from U.S. hospitals to identify key drivers of 30-day readmissions. Using predictive modeling and data visualization, I aimed to help healthcare organizations proactively reduce readmission rates and improve patient outcomes.
 
 ## 📊 Objective
 - Identify the most common patterns among patients who are readmitted within 30 days.
